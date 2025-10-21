@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conecta con tu Consejera</title>
+  <head>
+  <link rel="icon" href="logo final sororidad-01.jpg" type="image/png">
+  <!-- Fuente Alan Sans (Almarai como alternativa) -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+  ...
+</head>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Almarai', sans-serif;
+      background: linear-gradient(to bottom right, #fce4ec, #e3f2fd);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #880e4f;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0.3rem auto;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* ✨ BLOQUE DESTACADO ✨ */
+    .texto-destacado {
+      margin-top: 1.5rem;
+      background: linear-gradient(to right, #f8bbd0, #e1bee7);
+      color: #4a148c;
+      font-weight: bold;
+      font-size: 1.3rem;
+      border-radius: 10px;
+      padding: 1rem;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-style: italic;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Logo fijo */
+    .corner-image {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      width: 120px;
+      height: auto;
+      border-radius: 50%;
+      z-index: 1000;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #880e4f;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    footer .social h3 {
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    footer .social a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    footer .social a:hover {
+      transform: scale(1.2);
+      color: #ff80ab;
+    }
+
+    /* ===== FORMULARIO ===== */
+    .contact-section {
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      color: #1976d2;
+    }
+
+    .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      flex: 1 1 300px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #880e4f;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #880e4f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: #ad1457;
+    }
+
+    .contact-image {
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .contact-image img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+    }
+
+    /* ===== HISTORIA Y VIDEO ===== */
+    .story-video-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .book-section, .video-section {
+      flex: 1 1 300px;
+      margin: 1rem;
+      background-color: rgba(255,255,255,0.85);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .book-section h2, .video-section h2 {
+      text-align: center;
+    }
+
+    .book-section .page {
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .book-section .page.active {
+      display: block;
+    }
+
+    .book-section .nav-buttons {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .book-section button {
+      background-color: #880e4f;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      margin: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .book-section button:hover {
+      background-color: #ad1457;
+    }
+
+    .illustration {
+      width: 100%;
+      max-width: 250px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .video-section iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      max-width: 350px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .modal-content h2 {
+      color: green;
+      margin-bottom: 15px;
+    }
+
+    .modal-content button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #880e4f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background: #ad1457;
+    }
+
+    /* ===== ANIMACIÓN DEL CHECK ===== */
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-block;
+  stroke-width: 2;
+  stroke: #4CAF50;
+  stroke-miterlimit: 10;
+  margin: 10px auto;
+  box-shadow: inset 0px 0px 0px #4CAF50;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4CAF50;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #4CAF50;
+  stroke-width: 3;
+  stroke-linecap: round;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fill {
+  100% { box-shadow: inset 0px 0px 0px 30px #4CAF50; }
+}
+
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes scale {
+      0%, 100% {
+        transform: none;
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        box-shadow: inset 0px 0px 0px 30px #4CAF50;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo -->
+  <img src="logo final sororidad-01.png" alt="Logo" class="corner-image">
+
+  <header>
+    <h1>¿Necesitas hablar con alguien?</h1>
+    <p>Tu consejera está aquí para escucharte y ayudarte.</p>
+    <p>Cada una de nosotras lleva dentro una historia que merece ser contada.</p>
+    <p>Una historia que dolió, que enseñó, que transformó.</p>
+    <p style="white-space: nowrap;">Este espacio existe para que puedas escribirla con libertad, con verdad, con el corazón abierto.</p>
+    <p>Porque cuando compartimos lo que vivimos, tejemos puentes.</p>
+    <p>Y cuando nos leemos entre nosotras, descubrimos que no estamos solas.</p>
+
+    <div class="texto-destacado">
+      <p>Escribe lo que viviste.</p>
+      <p>Lo que aún estás viviendo.</p>
+      <p>Lo que necesitas decir.</p>
+      <p>Tu voz importa.</p>
+      <p>Tu historia también.</p>
+    </div>
+  </header>
+
+  <!-- FORMULARIO -->
+  <div class="contact-section">
+    <h2>Contáctanos</h2>
+    <div class="contact-content">
+      <form id="contactForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="email">Correo:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div class="contact-image">
+        <img src="Copilot_20250923_143817.png" alt="Mujer feliz con burbujas" />
+        <p style="font-style:italic;">A veces sonreímos, pero por dentro tenemos preguntas sin respuesta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORIA Y VIDEO -->
+  <div class="story-video-section">
+    <div class="book-section">
+      <h2>Lee nuestra historia</h2>
+      <div id="book-pages">
+        <div class="page active">
+          <img src="c:\Users\ESTUDIANTE.100411DS08011\Downloads\img1.jpeg" alt="Capítulo 1" class="illustration" />
+          <p><strong>Parte 1: La rutina y el conflicto inesperado</strong> Los rayos del sol alumbraban mi cara. Otra vez tenía que levantarme para ir al colegio y enfrentar lo que fuera que el día trajera. Me puse mi uniforme perfectamente planchado, risé mis largas pestañas que resaltaban el café de mis ojos, y peiné mi abundante cabello oscuro. Al llegar al colegio, vi a uno de mis amigos y corrí a abrazarlo. Él sonrió con cariño, pero justo detrás de él estaba su novia, Fernanda, que me miró con frialdad. Sentí su mirada clavarse en mí, pero decidí ignorarla. Caminé hacia mi clase con una mezcla de emoción y nervios. No sabía que ese gesto inocente iba a desencadenar algo mucho más grande.</p>
+        </div>
+        <div class="page">
+          <img src="c:\Users\ESTUDIANTE.100411DS08011\Downloads\img 2.jpeg" alt="Capítulo 2" class="illustration" />
+          <p><strong>Parte 2: La intervención y el despertar</strong> Durante la clase, me la pasé hablando y riendo con mis amigos. Todo parecía normal, hasta que sentí que alguien me tomaba por detrás del cabello y me tiraba al suelo. —¡Deja de meterte con mi novio y de querer llamar la atención! —gritó Fernanda, con los ojos encendidos de rabia. Yo estaba en shock. No entendía qué pasaba. Escuchaba voces apagadas a mi alrededor: —Se lo merecía. —Ya era hora de que alguien le pusiera un alto. —Siempre está buscando atención. Comentarios que dolían más que el jalón. Me sentía sola, juzgada, incomprendida. Hasta que apareció Antonella. Alta, segura, con una mirada firme. Se acercó sin dudar y separó a Fernanda con decisión. —¿Así es como resolvemos las cosas entre nosotras? —dijo con calma, pero con fuerza—. ¿No crees que hay formas más maduras de enfrentar lo que sentimos? Fernanda bajó la mirada. Antonella me ayudó a levantarme con delicadeza, rodeándome con su brazo como quien protege algo valioso. Ese gesto cambió el aire. Las chicas que estaban alrededor comenzaron a mirarse entre sí, algunas se alejaron en silencio. Por primera vez, sentí que alguien me veía de verdad.</p>
+        </div>
+        <div class="page">
+          <img src="c:\Users\ESTUDIANTE.100411DS08011\Downloads\img 3.jpeg" alt="Capítulo 3" class="illustration" />
+          <p><strong>Parte 3: La transformación y la sororidad</strong> Los días siguientes fueron distintos. Algunas chicas que antes me ignoraban comenzaron a saludarme con timidez. Fernanda no volvió a hablarme, pero la vi acercarse a otras chicas con las que antes solía criticar. Antonella se convirtió en una figura silenciosa de respeto. No imponía con gritos, sino con presencia. Un día, durante el descanso, varias chicas nos reunimos en el jardín sin planearlo. La conversación fluyó con naturalidad. Nadie mencionó lo ocurrido, pero todas hablábamos desde un lugar más real. Fue entonces cuando entendí que la sororidad no siempre se grita. A veces es una mirada honesta, una defensa sin violencia, una red invisible que sostiene. Desde entonces, aunque no todo fue perfecto, el ambiente cambió. Aprendimos a respetar nuestras diferencias sin usarlas como armas. Ya no me sentía sola. Nos estábamos convirtiendo, poco a poco, en algo más fuerte. Una red hecha de mujeres que aprendían a sostenerse, en vez de derribarse.</p>
+        </div>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">⟵ Anterior</button>
+        <button onclick="nextPage()">Siguiente ⟶</button>
+      </div>
+    </div>
+
+    <div class="video-section">
+      <h2>Mira un poco de una historia creada por nosotras</h2>
+<iframe 
+  width="560" 
+  height="315" 
+  src="https://youtu.be/SvhH6s3r4jQ?si=IfHr3JV8v4HzPlJx" 
+  title="Hilos de Luna - Animación" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen>
+</iframe>
+
+</div>
+
+
+    </div>
+  </div>
+
+  <!-- FOOTER ABAJO -->
+  <footer>
+    <div class="social">
+      <h3>Síguenos en nuestras redes</h3>
+      <a href="https://www.facebook.com/profile.php?id=61582429286034" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/hilosdeluna_8?igsh=Nm85Njh6M2d2ZnZr" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/Hilos_de_luna?t=TTgn1WlCRd15HwB0i48o_A&s=09" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com/@hilosdeluna-e9m?si=MKa_f1GY1TEqFMRz" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+        <path class="checkmark__check" fill="none" d="M14 27l7 7 16-16"/>
+      </svg>
+      <h2>¡Mensaje enviado!</h2>
+      <p>Tu consejera recibirá tu mensaje pronto.</p>
+      <button id="closeModal">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('#book-pages .page');
+    function showPage(index) {
+      pages.forEach((page, i) => {
+        page.classList.toggle('active', i === index);
+      });
+    }
+    function nextPage() {
+      if (currentPage < pages.length - 1) { currentPage++; showPage(currentPage); }
+    }
+    function prevPage() {
+      if (currentPage > 0) { currentPage--; showPage(currentPage); }
+    }
+    showPage(currentPage);
+
+    const form = document.getElementById("contactForm");
+    const modal = document.getElementById("successModal");
+    const closeModalBtn = document.getElementById("closeModal");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      modal.style.display = "flex";
+      form.reset();
+    });
+
+    closeModalBtn.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
